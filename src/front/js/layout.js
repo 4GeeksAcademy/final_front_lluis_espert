@@ -11,6 +11,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { TodoListFetch } from "./pages/TodoListFetch.js";
+import { CrearAgenda } from "./pages/CrearAgenda.js";
 
 
 //create your first component
@@ -28,6 +29,7 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<TodoListFetch /> } path="/TodoListFetch.js" />
+                        <Route element={<CrearAgenda />} path="/CrearAgenda.js" />
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
