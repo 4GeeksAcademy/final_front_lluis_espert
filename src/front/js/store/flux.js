@@ -1,25 +1,42 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+
+			baseURLContact: 'https://playground.4geeks.com/agendas',
+
+			usuario : 'lluisespert'
+
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
+
+			getTodoContact : async () => {
+			
+				const uri = `${baseURL}/agendas/${usuario}/contacts`;
+				 
+				const opciones = {
+			
+				  method: 'GET'
+			
+				}
+				 
+				const response = await fetch(uri, opciones);
+				
+				if (!response.ok) {
+				  
+				  console.log('error:', response.status, response.statusText)
+			
+				  
+				  if (response.status == 404) {
+			
+				  }
+			
+				  return   
+				}
+			
+				const data = await response.json();
+		
+			  }
+			,
 
 			getMessage: async () => {
 				try{
