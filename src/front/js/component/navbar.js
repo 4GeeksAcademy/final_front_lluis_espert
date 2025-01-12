@@ -8,6 +8,7 @@ export const Navbar = () => {
 	// (3) Enviadole el parámetro Context definido en appContex.js
 	const { store, actions } = useContext(Context);
 	// 4. Utilizo cualquier clave de store. o de actions. en mi componente
+	const navigate = useNavigate()
 
 	return (
 		<nav className="navbar navbar-expand-md bg-body-tertiary">
@@ -22,7 +23,7 @@ export const Navbar = () => {
 								Dropdown
 							</Link>
 							<ul className="dropdown-menu">
-								<li><Link className="dropdown-item" to="/TodoListFetch.jsx">Todo List</Link></li>
+								<li><Link className="dropdown-item" to="/TodoListFetch.js">Todo List</Link></li>
 							</ul>
 						</li>
 					</ul>
