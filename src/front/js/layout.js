@@ -32,7 +32,8 @@ const Layout = () => {
                     <Routes>
                         <Route element={<TodoListFetch /> } path="/TodoListFetch.js" />
                         <Route element={<CrearContactoAgenda />} path="/CrearContactoAgenda.js" />
-                        <Route element={<Contactos />} path="/" />
+                        <Route element={<Contactos />} path="/Contactos.js" />
+                        <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
