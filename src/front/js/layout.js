@@ -12,6 +12,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { TodoListFetch } from "./pages/TodoListFetch.js";
 import { CrearContactoAgenda } from "./pages/CrearContactoAgenda.js";
+import { Contactos } from "./pages/Contactos.js";
 
 
 
@@ -31,7 +32,7 @@ const Layout = () => {
                     <Routes>
                         <Route element={<TodoListFetch /> } path="/TodoListFetch.js" />
                         <Route element={<CrearContactoAgenda />} path="/CrearContactoAgenda.js" />
-                        <Route element={<Home />} path="/" />
+                        <Route element={<Contactos />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />

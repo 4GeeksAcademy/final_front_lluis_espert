@@ -25,6 +25,8 @@ export const Navbar = () => {
 							<ul className="dropdown-menu">
 								<li><Link className="dropdown-item" to="/TodoListFetch.js">Todo List</Link></li>
 								<li><Link className="dropdown-item" to="/CrearContactoAgenda.js">Crear Contacto</Link></li>
+								<li><Link className="dropdown-item" to="/EditarContacto.js">Editar Contacto</Link></li>
+								<li><Link className="dropdown-item" to="/Contactos.js">Mostrar Contactos</Link></li>
 							</ul>
 						</li>
 					</ul>

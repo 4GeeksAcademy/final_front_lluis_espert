@@ -1,94 +1,134 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Context } from "../store/appContext.js";
+
 
 export const CrearContactoAgenda = () => {
 
-    const baseURL = 'https://playground.4geeks.com/contact';
+  const { store, actions } = useContext(Context)
 
-    const usuario = 'lluisespert';
+  let navigate = useNavigate();
 
-    const [contact, setContact] = useState('');
+  const { id } = useParams(); 
 
-    const handleSubmitAdd = async (event) => {
-      event.preventDefault();
-      
-      const dataToSend = {
-  
-        label: contact,
-  
-        is_done: false
-  
-      };
-  
-      const uri = `${baseURL}/agendas/${usuario}/contacts`
-  
-      const opciones = {
-  
-        method: 'POST',
-  
-        headers: {
-  
-          "Content-Type": "application/json"
-  
-        },
-  
-        body: JSON.stringify(dataToSend)
-  
-      }
-      
-      const response = await fetch(uri, opciones);
-  
-      if (!response.ok) {
-          
-        console.log('error:', response.status, response.statusText)
-  
-        return; 
-      }
-  
-      setContact('');
-  
+  const [name, setName] = useState("");
+
+  const [phone, setPhone] = useState("");
+
+  const [email, setEmail] = useState("");
+
+  const [address, setAddress] = useState("");
+
+  function GuardarContacto(e) {
+
+    e.preventDefault()
+
+    if (name.trim() == "" || phone.trim() == "" || email.trim() == "" || address.trim() == "") {
+
+        return null
+
     }
+
+    const payload = {
+
+        name: name,
+
+        phone: phone,
+
+        email: email,
+
+        address: address
+
+    };
+
+    if (!id) {
+
+        actions.CrearContacto(payload)
+
+    } else {
+
+        actions.EditarContacto(id, payload)
+
+    }
+
+    navigate("/");
+
+    setName("");
+
+    setPhone("");
+
+    setEmail(""),
+
+    setAddress("");
+
+}
+
+useEffect(() => {
+
+    if (id && store.ListaContactos.length > 0) {
+
+        const ContactoCorriente = store.ListaContactos.find(contacto => contacto.id == id)
+
+        setName(ContactoCorriente.name)
+
+        setPhone(ContactoCorriente.phone)
+
+        setEmail(ContactoCorriente.email)
+
+        setAddress(ContactoCorriente.address)
+
+    }
+
+}, [id, store.ListaContactos])
+      
 
       return (
 
-        <div className="container my-5">
+        <div className="container">
+        
+          <h1 className="text-center">{!id ? "Añadir Nuevo Contacto" : `Editing Contact: ${name}`}</h1>
 
-          <form onSubmit={handleSubmitAdd}>
+          <form className="container" onSubmit={GuardarContacto}>
 
             <div className="mb-3 mt-3">
 
-              <label for="Nombre" className="form-label">Name:</label>
+                <label htmlFor="formGroupExampleInput1" className="form-label">Nombre:</label>
 
-              <input type="text" className="form-control" id="name" placeholder="Introduce el nombre" name="name"></input>
+                <input type="text" className="form-control" id="formGroupExampleInput1" placeholder="Nombre Completo" onChange={(e) => setName(e.target.value)} value={name} required />
 
             </div>
 
             <div className="mb-3 mt-3">
 
-              <label for="Phone" className="form-label">Phone:</label>
+                <label htmlFor="formGroupExampleInput2" className="form-label">Email:</label>
 
-              <input type="text" className="form-control" id="phone" placeholder="Introduce el número de teléfono" name="phone"></input>
-
-            </div>
-
-            <div className="mb-3 mt-3">
-
-              <label for="Email" className="form-label">Email:</label>
-
-              <input type="email" className="form-control" id="email" placeholder="Introduce el email" name="email"></input>
+                <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Introducir el email" onChange={(e) => setEmail(e.target.value)} value={email} required />
 
             </div>
 
             <div className="mb-3 mt-3">
 
-              <label for="address" className="form-label">Address:</label>
+                <label htmlFor="formGroupExampleInput3" className="form-label">Teléfono</label>
 
-              <input type="text" className="form-control" id="address" placeholder="Introduce tu dirección" name="address"></input>
+                <input type="text" className="form-control" id="formGroupExampleInput3" placeholder="Introducir Teléfono" onChange={(e) => setPhone(e.target.value)} value={phone} required />
 
             </div>
 
-            <button type="submit" className="btn btn-primary">Introducir Contacto</button>
+            <div className="mb-3 mt-3">
 
-          </form>
+                <label htmlFor="formGroupExampleInput4" className="form-label">Dirección:</label>
+
+                <input type="text" className="form-control" id="formGroupExampleInput4" placeholder="Introduce la dirección" onChange={(e) => setAddress(e.target.value)} value={address} required />
+
+            </div>
+
+            <div className="mb-3 mt-3">
+
+                <button type="submit" className="btn btn-primary" >Save</button>
+
+            </div>
+
+         </form>
 
         </div>
 
