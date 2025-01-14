@@ -23,7 +23,7 @@ export const TarjetaContacto = ({ contact }) => {
 
                     <img
                         className="rounded-circle"
-                        src="https://picsum.photos/170/170/"
+                        src="./src/front/img/cabra.jpg"
                         alt="Contact"
 
                     />
