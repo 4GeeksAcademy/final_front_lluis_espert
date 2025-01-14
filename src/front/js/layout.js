@@ -10,10 +10,11 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { TodoListFetch } from "./pages/TodoListFetch.js";
-import { CrearContactoAgenda } from "./pages/CrearContactoAgenda.js";
-import { Contactos } from "./pages/Contactos.js";
-import { EditarContacto } from "./pages/EditarContacto.js";
+import { Contacts } from "./pages/Contacts";
+import { AddContact } from "./pages/AddContact";
+import { EditContact } from "./pages/EditContact";
+import { TodoListFetch } from "./pages/TodoListConFetch";
+
 
 
 
@@ -31,14 +32,13 @@ const Layout = () => {
                 <ScrollToTop>
                     <Navbar />
                     <Routes>
-                        <Route element={<TodoListFetch /> } path="/TodoListFetch.js" />
-                        <Route element={<CrearContactoAgenda />} path="/CrearContactoAgenda.js" />
-                        <Route element={<Contactos />} path="/Contactos.js" />
-                        <Route element={<EditarContacto />} path="/EditarContacto.js" />
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
-                        <Route element={<h1>Not found!</h1>} />
+                        <Route element={<Contacts/>} path="/contacts" />
+                        <Route element={<AddContact/>} path= "/add-contact" />
+                        <Route element={<EditContact/>} path= "/edit-contact" />
+                        <Route element={<TodoListFetch/>} path= "/todo-list" />
                     </Routes>
                     <Footer />
                 </ScrollToTop>
