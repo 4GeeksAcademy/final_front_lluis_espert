@@ -15,7 +15,7 @@ export const Contactos = () => {
 
             <div className="d-flex justify-content-end">
 
-                <Link to="/AddContact">
+                <Link to="/CrearContactoAgenda.js">
 
                     <button className="btn btn-success">Add New contact</button>
 
@@ -25,11 +25,11 @@ export const Contactos = () => {
 
             <ul className="list-group mt-3">
 
-                {store.ListaContactos && store.ListaContactos.length > 0 && store.ListaContactos.map((contacto, index) => {
+                {store.ListaContactos && store.ListaContactos.length > 0 && store.ListaContactos.map((contact, index) => {
 
                     return (
 
-                        <TarjetaContacto contact={contacto} key={index} />
+                        <TarjetaContacto contact={contact} key={index} />
 
                     )
 

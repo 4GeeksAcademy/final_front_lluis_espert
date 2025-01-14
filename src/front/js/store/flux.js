@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 
-            ListaContactos: [] 
+            ListaContactos: [] ,
 
         },
 
@@ -136,7 +136,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             },
 
-            EditarContacto: (id, contacto) => {
+            EditarContacto: (id, contact) => {
 
                 const store = getStore()
 
@@ -168,11 +168,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
                         if (data) {
 
-                            const actualizarLista = store.ListaContactos.map(contacto => {
+                            const actualizarLista = store.ListaContactos.map(contact => {
 
                                 if (contact.id == id) {
 
-                                    contacto = data
+                                    contact = data
 
                                 }
 

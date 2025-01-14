@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
-import { Context } from '../store/appContext'
+import { Context } from '../store/appContext.js'
 
 export const TarjetaContacto = ({ contact }) => {
 
@@ -9,7 +9,7 @@ export const TarjetaContacto = ({ contact }) => {
 
     const eliminarContacto = () => {
 
-        actions.deleteContact(contact.id);
+        actions.BorrarContacto(contact.id);
 
     };
 
@@ -44,7 +44,7 @@ export const TarjetaContacto = ({ contact }) => {
 
                 <div className="col-md-3 d-flex justify-content-end">
 
-                    <Link to={"/editContact/" + contact.id} className="btn btn-link p-0 me-3">
+                    <Link to={"/EditarContacto.js/" + contact.id} className="btn btn-link p-0 me-3">
 
                         <i className="fa fa-eraser"></i>
 
