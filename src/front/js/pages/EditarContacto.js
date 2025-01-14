@@ -33,7 +33,7 @@ export const EditarContacto = () => {
                 </div>
             </form>
 
-            <Link to="/"><a>volver a Contacts</a></Link>
+            <Link to="/Contactos"><a>Volver a contactos</a></Link>
         </div>
     )
 }
