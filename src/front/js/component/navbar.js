@@ -11,6 +11,9 @@ export const Navbar = () => {
 		Dropdown Menú
 		</button>
 		<ul class="dropdown-menu">
+		<li><Link className="nav-link link-secondary" to="/starships">Starships</Link></li>
+		<li><Link className="nav-link link-secondary" to="/planets">Planets</Link></li>
+		<li><Link className="nav-link link-secondary" to="/characters">Characters</Link></li>	
 		<li><Link className="nav-link link-secondary" to="/contacts">Contacts</Link></li>
 		<li><Link className="nav-link link-secondary" to="/add-contact">Add Contacts</Link></li>
 		<li><Link className="nav-link link-secondary" to="/todo-list">Todo</Link></li>

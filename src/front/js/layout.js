@@ -15,7 +15,12 @@ import { AddContact } from "./pages/AddContact";
 import { EditContact } from "./pages/EditContact";
 import { TodoListFetch } from "./pages/TodoListConFetch";
 
-
+import { Characters } from "./pages/Characters.jsx";
+import { Planets } from "./pages/Planets.jsx";
+import { Starships } from "./pages/Starships.jsx";
+import { Character } from "./pages/Character.jsx";
+import { Planet } from "./pages/Planet.jsx";
+import { Starship } from "./pages/Starship.jsx";
 
 
 //create your first component
@@ -39,6 +44,12 @@ const Layout = () => {
                         <Route element={<AddContact/>} path= "/add-contact" />
                         <Route element={<EditContact/>} path= "/edit-contact" />
                         <Route element={<TodoListFetch/>} path= "/todo-list" />
+                        <Route element={<Characters/>} path= "/characters" />
+                        <Route element={<Character/>} path= "/characters/:uid" />
+                        <Route element={<Planets/>} path= "/planets" />
+                        <Route element={<Starships/>} path= "/starships" />
+                        <Route element={<Planet/>} path= "/planets/:uid" />
+                        <Route element={<Starship/>} path= "/starships/:uid" />
                     </Routes>
                     <Footer />
                 </ScrollToTop>
