@@ -62,3 +62,4 @@ class Followers(db.Model):
 
     def __repr__(self):
         return f'<Follower: {self.follower_id} - Following {self.following_id}>'
+        
